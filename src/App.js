@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Header from './Header.js';
+import Auth from './Auth.js';
+import ToDos from './ToDos.js';
+import './Styles/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class Home extends Component {
+  render() {
+    return <h1>Home Page</h1>;
+  }
+}
+
+class App extends Component {
+  state = {
+    token: localStorage.getItem('TOKEN'),
+  };
+  setToken = (val) => {
+    this.setState({ token: val });
+  };
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Header />
+        <section className="main">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/login" render={(routerProps) => (
+              <Auth setToken={this.setToken} type="login" {...routerProps} />
+            )}
+          />
+
+          <Route path="/signup" render={(routerProps) => (
+            <Auth setToken={this.setToken} type="signup" {...routerProps} />
+            )}
+          />
+          
+          <Route path="/todos" render={(routerProps) => this.state.token ? (
+            <ToDos {...routerProps} /> ) : (
+              <Redirect to="/login" />
+            )
+          } />
+          </Switch>
+        </section>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
