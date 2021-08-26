@@ -1,5 +1,5 @@
 body {
-  /* background-image: url("Among-Us-2.jpg"); */
+  background-image: url("Among-Us-2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -19,9 +19,71 @@ body {
 .main {
   background-color: lightgrey;
   width: 800px;
+  height: 400px;
+  margin-top: 20px;
   border-radius: 10px;
   border: solid black 3px;
   box-shadow:
-        inset -10px 10px 5px white,
-        inset 10px -10px 5px darkgrey;
+        inset -10px 7px 5px white,
+        inset 10px -7px 5px darkgrey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  }
+
+  .secondary-container {
+    background-color: rgb(102, 102, 102);
+    width: 700px;
+    height: 365px;
+    margin-left: 13px;
+    border-radius: 10px;
+    border: solid rgb(53, 53, 53) 3px;    
+  }
+
+  .inner-container {
+    background-color: rgb(173, 209, 233);
+    height: 355px;
+    margin: 4px 4px;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: solid rgb(53, 53, 53) 1px;     
+  }
+
+  .inner-container a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .inner-container a:hover {
+    color: #c22121;
+}
+  
+  .circle {
+    background-color: rgb(80, 80, 80);
+    height: 45px;
+    width: 45px;
+    margin-left: 10px;
+    border-radius: 50%;
+    /* border: solid rgb(255, 255, 255) 3px; */
+    box-shadow: 0px 0px 6px rgb(153, 153, 153),
+      0px 0px 6px rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;   
+  }
+
+  .circle2 {
+    background-color: rgb(219, 219, 219);
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px rgb(255, 255, 255),
+      inset 0px 0px 6px rgb(255, 255, 255);
+  }
+
+  button {
+    background-color: rgba(255, 255, 255, 0);
+    margin: 5px;
   }
