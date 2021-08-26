@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { getTodos, updateTodo } from './fetch-utils.js';
-// import classNames from 'classnames';
-
+import { getTodos, updateTodo, createTodo } from './fetch-utils.js';
 class ToDos extends Component {
     state = { todos: [], newTodo: '', };
 
@@ -17,8 +15,8 @@ class ToDos extends Component {
 
     handleClick = async (e) => {
         e.preventDefault();
-        updateTodo(this.props.token, {
-            description: this.state.newTodo,
+        createTodo(this.props.token, {
+            todo: this.state.newTodo,
             completed: false,
         });
         this.setState({ newTodo: '' });
@@ -35,24 +33,26 @@ class ToDos extends Component {
     render() { 
         return ( 
             <>
-                <h1>Tasks</h1>
+                <h1>Your Tasks__</h1>
                 <section className="todo-list">
                     {this.state.todos.map((todo) => (
                         <div className="task" key={todo.id}>
-                        {/* <h2>{a.todo}</h2>
-                        <p><input onClick={()=>this.handleClick(a.id)} type="checkbox" checked={a.completed} />
-                        <label>{a.todo}</label></p> */}
 
                         <input type="checkbox" checked={todo.completed} onChange={() => this.handleCompleted(todo)}></input>
                         <label>{todo.todo}</label>
                         </div>
                     ))}
                 </section>
+                <p></p>
                 <section className="new-todo">
                     <form onSubmit={this.handleClick}>
                         <input value={this.state.newTodo} type="text" onChange={(e) => this.setState({ newTodo: e.target.value })} />
                         <button>Add New Task</button>
                     </form>
+                    <button onClick={() => {
+                    localStorage.removeItem('TOKEN');
+                    window.location.replace('/');
+                    }}>Log Out</button>
                 </section>
             </>
          );
