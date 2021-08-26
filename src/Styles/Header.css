@@ -2,8 +2,8 @@
 header {
     min-width: 100vw;
     height: 100px;
-    background-color: rgb(146, 75, 47);
-    color: rgb(250, 233, 181);
+    background-color: rgb(189, 189, 189);
+    color: rgb(255, 255, 255);
     font-size: 2rem;
     text-transform: uppercase;
     display: flex;
@@ -31,11 +31,11 @@ header img {
 }
 
 .links a {
-    color: #ffe58f;
+    color: #ffffff;
     text-decoration: none;
 }
 
 .links a.active,
-.links a:hover {
-    color: #88eb4f;
+a:hover {
+    color: #c22121;
 }

@@ -5,7 +5,7 @@ import { getToken } from './fetch-utils.js';
 class Auth extends Component {
     state = { email: '', password: '' }
     getType = () => {
-        return this.props.type === 'login' ? 'Log In' : 'Sign Up';
+        return this.props.type === 'signin' ? 'Log In' : 'Sign Up';
     };
 
     handleSubmit = async (e) => {
@@ -24,16 +24,16 @@ class Auth extends Component {
             <>
             <h1>{this.getType()}</h1>
             <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
+                <div className="form-control">
                     <label>Email: </label>
                     <input
-                        type="password"
+                        type="email"
                         onChange={(e) =>
-                            this.setState({ password: e.target.value })
+                            this.setState({ email: e.target.value })
                         }
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-control">
                     <label>Password: </label>
                     <input
                         type="password"
