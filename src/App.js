@@ -30,6 +30,7 @@ class App extends Component {
           <div>Crewmate Tasks:</div>
           <div className="links">
             <NavLink to="/" exact>Home</NavLink>
+            <NavLink to="/todos" exact>Tasks</NavLink>
             {!localStorage.getItem('TOKEN') ?
             <>
               <NavLink to="/login" exact>Log In</NavLink>

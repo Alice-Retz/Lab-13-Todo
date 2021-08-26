@@ -17,7 +17,7 @@ class ToDos extends Component {
 
     handleClick = async (e) => {
         e.preventDefault();
-        const data = updateTodo(this.props.token, {
+        updateTodo(this.props.token, {
             description: this.state.newTodo,
             completed: false,
         });
@@ -27,7 +27,7 @@ class ToDos extends Component {
 
     handleCompleted = async (todo) => {
         todo.completed = !todo.completed;
-        const data = updateTodo(this.props.token, todo);
+        updateTodo(this.props.token, todo);
         this.fetchToDoData();
     };
 

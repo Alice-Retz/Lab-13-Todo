@@ -16,9 +16,6 @@ export async function getToken(loginInfo, type) {
 }
 
 export async function getTodos(token) {
-    // const resp = await fetch(`${URL}/api/to-dos`);
-    // const data = await resp.json();
-    // return data;
     const todosURL = `${URL}/api/to-dos`;
     const resp = await fetch(todosURL, {
         method: 'GET',
